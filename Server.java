@@ -36,7 +36,7 @@ class Server{
                     break;
                 }
 
-                System.out.println("Clinet: "+msg);
+                System.out.println("Client: "+msg);
                 } 
             }catch (Exception e) {
                 e.printStackTrace();

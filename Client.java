@@ -33,11 +33,13 @@ class Client{
             while (true) {
                     String msg = br.readLine();
                 if(msg.equals("exit")){
-                    System.out.println("Client turminated the chat");
+                    System.out.println("Server turminated the chat");
+                    s.close();
+                    System.out.println("Hello");
                     break;
                 }
 
-                System.out.println("Clinet: "+msg);
+                System.out.println("Server: "+msg);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -57,6 +59,10 @@ class Client{
                     String content = br1.readLine();
                     out.println(content);
                     out.flush();
+                    if(content.equals("exit")){
+                        s.close();
+                        break;
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
