@@ -35,14 +35,14 @@ class Client{
                 if(msg.equals("exit")){
                     System.out.println("Server turminated the chat");
                     s.close();
-                    System.out.println("Hello");
                     break;
                 }
 
                 System.out.println("Server: "+msg);
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+               System.out.println("Connection closed");
             }
         };
 
@@ -54,7 +54,7 @@ class Client{
         Runnable r2=()->{
             System.out.println("Writting started...");
          try {
-            while (true) {
+            while (!s.isClosed()) {
                     BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
                     String content = br1.readLine();
                     out.println(content);
@@ -65,7 +65,8 @@ class Client{
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+               System.out.println("Connection closed");
             }
         };
         new Thread(r2).start();
