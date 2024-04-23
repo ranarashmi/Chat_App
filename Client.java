@@ -30,7 +30,7 @@ class Client{
         Runnable r1 = ()->{
             System.out.println("Reading started...");
          try {
-            while (true) {
+            while (!s.isClosed()) {
                     String msg = br.readLine();
                 if(msg.equals("exit")){
                     System.out.println("Server turminated the chat");
