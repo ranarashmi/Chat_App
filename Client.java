@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -22,24 +25,52 @@ class Client extends JFrame{
     //constructor
     public Client(){
         try {
-            /*System.out.println("Sending request to server");
+            System.out.println("Sending request to server");
             s = new Socket("127.0.0.1",7777);
             System.out.println("Connection Done....");
             br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-            out = new PrintWriter(s.getOutputStream());*/
+            out = new PrintWriter(s.getOutputStream());
             createGUI();
-            /*startReading();
-            startWriting();*/
+            handleEvents();
+            startReading();
+            //startWriting();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    private void handleEvents() {
+        messageInput.addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if(e.getKeyCode()==10){
+                    String contentToSend = messageInput.getText();
+                    messageArea.append("Me :"+contentToSend+"\n");
+                    out.println(contentToSend);
+                    out.flush();
+                    messageInput.setText("");
+                    messageInput.requestFocus();
+                }
+            }
+        });
+    }
+
     private void createGUI() {
         //For GUI
         this.setTitle("Client Messanger");
-        this.setSize(500,500);
+        this.setSize(600,700);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -48,10 +79,15 @@ class Client extends JFrame{
         messageArea.setFont(font);
         messageInput.setFont(font);
 
-        heading.setIcon(new ImageIcon("clong.png"));
+        heading.setIcon(new ImageIcon("images.jpg"));
+        heading.setHorizontalTextPosition(SwingConstants.CENTER);
+        heading.setVerticalTextPosition(SwingConstants.BOTTOM);
         heading.setHorizontalAlignment(SwingConstants.CENTER);
         heading.setBorder(BorderFactory.createEmptyBorder(10,5,10,5));
         //this.getContentPane().setBackground(new Color(15, 242, 231));
+        messageInput.setHorizontalAlignment(SwingConstants.CENTER);
+        messageArea.setEnabled(false);
+        messageArea.setDisabledTextColor(Color.BLACK);
 
 
 
@@ -60,7 +96,8 @@ class Client extends JFrame{
 
         //For adding component to frame
         this.add(heading,BorderLayout.NORTH);
-        this.add(messageArea,BorderLayout.CENTER);
+        JScrollPane jScrollPane = new JScrollPane(messageArea);
+        this.add(jScrollPane,BorderLayout.CENTER);
         this.add(messageInput,BorderLayout.SOUTH);
 
         this.setVisible(true);
@@ -75,12 +112,12 @@ class Client extends JFrame{
             while (!s.isClosed()) {
                     String msg = br.readLine();
                 if(msg.equals("exit")){
-                    System.out.println("Server turminated the chat");
+                    JOptionPane.showMessageDialog(this,"Server terminated the chat");
+                    messageInput.setEnabled(false);
                     s.close();
                     break;
                 }
-
-                System.out.println("Server: "+msg);
+                messageArea.append("Server: "+msg+ "\n");
                 }
             } catch (Exception e) {
                 // e.printStackTrace();
