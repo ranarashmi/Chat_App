@@ -15,10 +15,10 @@ class Client extends JFrame{
     PrintWriter out;
 
     //Declare component
-    private JLabel heading = new JLabel("Client Area");
-    private JTextArea messageArea = new JTextArea();
-    private JTextField messageInput = new JTextField();
-    private Font font = new Font("Roboto",Font.PLAIN,20);
+    private final JLabel heading = new JLabel("Client Area");
+    private final JTextArea messageArea = new JTextArea();
+    private final JTextField messageInput = new JTextField();
+    private final Font font = new Font("Roboto",Font.PLAIN,20);
 
 
 

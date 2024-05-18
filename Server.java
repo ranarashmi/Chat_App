@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.text.StyleConstants;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -12,10 +13,10 @@ class Server extends JFrame{
     BufferedReader br;
     PrintWriter out;
 
-    private JLabel heading = new JLabel("Server Area");
-    private JTextField messageInput = new JTextField();
-    private JTextArea messageArea = new JTextArea();
-    private Font font = new Font("Roboto",Font.PLAIN,20);
+    private final JLabel heading = new JLabel("Server Area");
+    private final JTextField messageInput = new JTextField();
+    private final JTextArea messageArea = new JTextArea();
+    private final Font font = new Font("Roboto",Font.PLAIN,20);
 
     public Server(){
         try {
@@ -111,7 +112,6 @@ class Server extends JFrame{
                     socket.close();
                     break;
                 }
-
                 messageArea.append("Client: "+msg+"\n");
                 } 
             }catch (Exception e) {
