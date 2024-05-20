@@ -64,7 +64,7 @@ class Server extends JFrame{
 
     private void createGUI() {
         //For GUI
-        this.setTitle("Client Messenger");
+        this.setTitle("Server Messenger");
         this.setSize(600,700);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
