@@ -42,5 +42,17 @@ Run the Client:
 
 ![image](https://github.com/ranarashmi/Chat_App/assets/117155292/ccb18a10-d3f4-40e4-84e9-a1a1761a4811)
 
+**Running the Application**
+
+1. Start the server by running the Server class.
+2. Start one or more clients by running the Client class.
+3. Use the graphical interfaces to send and receive messages.
+
+**Interaction:**
+
+1. Once the server is running, it will wait for client connections.
+2. Start one or more clients; each client will connect to the server.
+3. Use the text field in each client and server window to send messages. Press "Enter" to send a message.
+4. The server and clients will display received messages in their respective text areas.
 
 
