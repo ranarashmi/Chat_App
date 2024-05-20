@@ -1,18 +1,22 @@
 "# Chat_app"
 
 **Overview**
+
 This is a simple chat application developed using Java, socket programming, and JFrame for the graphical user interface. The application consists of a server and client component that enable users to send and receive messages in real-time.
 
 **Features**
+
 Real-time messaging between server and client.
 Simple and user-friendly graphical interface using JFrame.
 Multi-threaded server to handle multiple clients simultaneously.
 
 **Prerequisites**
+
 Java Development Kit (JDK) 11 or higher.
 An IDE such as IntelliJ IDEA, Eclipse, or NetBeans (optional).
 
 **Project Structure**
+
 The project consists of the following files:
 
 Server.java: Contains the server-side implementation with the graphical interface for the server.
