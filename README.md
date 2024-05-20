@@ -24,7 +24,9 @@ Client.java: Contains the client-side implementation with the graphical interfac
 readme.md: Documentation file.
 
 **Setup and Usage**
+
 **Server**
+
 Compile the Server:
 
 ![image](https://github.com/ranarashmi/Chat_App/assets/117155292/22796ff6-df41-45c4-a281-c8805b98d122)
@@ -34,6 +36,7 @@ Run the Server:
 ![image](https://github.com/ranarashmi/Chat_App/assets/117155292/75acbd3b-2c93-4bd5-9d93-b4a5d975621c)
 
 **Client**
+
 Compile the Client:
 
 ![image](https://github.com/ranarashmi/Chat_App/assets/117155292/da3832a6-a7cf-416f-b1db-7790ecfe9960)
